@@ -29,15 +29,23 @@ function DashboardInner() {
 
     async function fetchAll() {
         setLoading(true);
-        const [scoresRes, winnersRes] = await Promise.all([
+        const [scoresRes, winnersRes, subRes, charRes] = await Promise.all([
             fetch('/api/scores'),
             fetch('/api/winners'),
+            fetch('/api/subscriptions'),
+            fetch('/api/charities/selection'),
         ]);
         if (scoresRes.status === 401) { router.push('/login'); return; }
+
         const s = await scoresRes.json();
         const w = await winnersRes.json();
+        const subData = await subRes.json();
+        const charData = await charRes.json();
+
         setScores(s.scores || []);
         setWinners(w.winners || []);
+        setSub(subData.subscription || null);
+        setCharity(charData.selection || null);
         setLoading(false);
     }
 
