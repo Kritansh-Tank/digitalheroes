@@ -37,7 +37,7 @@
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/Kritansh-Tank/digitalheroes
+git clone https://github.com/Kritansh-Tank/digitalheroes.git
 cd digitalheroes
 npm install
 ```
