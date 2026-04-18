@@ -37,7 +37,7 @@
 ### 1. Clone & Install
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Kritansh-Tank/digitalheroes
 cd digitalheroes
 npm install
 ```
@@ -160,3 +160,9 @@ Then add `STRIPE_WEBHOOK_SECRET=whsec_...` to your environment variables.
 3. Add all `.env.local` variables to Vercel → Settings → Environment Variables
 4. Set `NEXT_PUBLIC_APP_URL` to your production URL
 5. Deploy
+
+---
+
+## 📜 License
+
+MIT License - See LICENSE file for details
