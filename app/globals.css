@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1a3a2a;
+  --color-forest-light: #2d5a3d;
+  --color-forest-dark: #0f2118;
+  --color-gold: #d4a017;
+  --color-gold-light: #f0c040;
+  --color-cream: #fdf8f0;
+  --color-slate: #1e293b;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-forest-dark);
+  color: #e8f4e8;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-forest-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-forest-light); border-radius: 3px; }
+
+/* Glass card effect */
+.glass {
+  background: rgba(26, 58, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 160, 23, 0.15);
+}
+
+.glass-light {
+  background: rgba(45, 90, 61, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 160, 23, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #d4a017 0%, #f0c040 50%, #d4a017 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold button */
+.btn-gold {
+  background: linear-gradient(135deg, #d4a017, #f0c040);
+  color: #0f2118;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding: 0.75rem 2rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 160, 23, 0.5);
+}
+
+/* Forest button */
+.btn-forest {
+  background: var(--color-forest-light);
+  color: #e8f4e8;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.75rem 2rem;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  transition: all 0.2s ease;
+}
+.btn-forest:hover {
+  background: var(--color-forest);
+  border-color: var(--color-gold);
+}
+
+/* Input styles */
+.input-dark {
+  background: rgba(15, 33, 24, 0.8);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  color: #e8f4e8;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.input-dark:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
+}
+.input-dark::placeholder {
+  color: rgba(232, 244, 232, 0.4);
+}
+
+/* Animated background */
+.hero-bg {
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(45, 90, 61, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 20%, rgba(212, 160, 23, 0.1) 0%, transparent 50%),
+    var(--color-forest-dark);
+}
+
+/* Glow effect */
+.glow-gold {
+  box-shadow: 0 0 40px rgba(212, 160, 23, 0.2);
+}
+
+/* Number badge */
+.number-badge {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4a017, #f0c040);
+  color: #0f2118;
+  box-shadow: 0 4px 15px rgba(212, 160, 23, 0.4);
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(212, 160, 23, 0.15);
+}
+
+/* Prize tier badge */
+.tier-5 { background: linear-gradient(135deg, #d4a017, #f0c040); color: #0f2118; }
+.tier-4 { background: linear-gradient(135deg, #adb5bd, #ced4da); color: #0f2118; }
+.tier-3 { background: linear-gradient(135deg, #cd7f32, #e8a877); color: #fff; }
+
+/* Table styles */
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th {
+  background: rgba(15, 33, 24, 0.8);
+  color: var(--color-gold);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.admin-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(212, 160, 23, 0.08);
+  color: #c8dfc8;
+  font-size: 0.9rem;
+}
+.admin-table tr:hover td { background: rgba(45, 90, 61, 0.3); }
