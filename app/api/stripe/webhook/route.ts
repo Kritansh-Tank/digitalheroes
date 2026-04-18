@@ -34,7 +34,19 @@ export async function POST(req: NextRequest) {
 
       const sub = await stripe.subscriptions.retrieve(session.subscription);
 
-       const periodEnd = new Date((sub as unknown as { current_period_end: number }).current_period_end * 1000);
+      const periodEndTimestamp = (sub as any).current_period_end;
+      const periodStartTimestamp = (sub as any).current_period_start;
+
+      if (!periodEndTimestamp) {
+        console.error("Invalid subscription object:", sub);
+        return NextResponse.json({ error: "Invalid subscription data" }, { status: 500 });
+      }
+
+      const periodEnd = new Date(periodEndTimestamp * 1000).toISOString();
+
+      const periodStart = periodStartTimestamp
+        ? new Date(periodStartTimestamp * 1000).toISOString()
+        : new Date().toISOString();
 
       const { error } = await supabaseAdmin.from('subscriptions').upsert({
         user_id: userId,
@@ -42,8 +54,8 @@ export async function POST(req: NextRequest) {
         status: 'active',
         stripe_subscription_id: session.subscription,
         stripe_customer_id: session.customer,
-        current_period_start: new Date().toISOString(),
-        current_period_end: periodEnd.toISOString(),
+        current_period_start: periodStart,
+        current_period_end: periodEnd,
       }, { onConflict: 'user_id' });
 
       if (error) console.error(error);
