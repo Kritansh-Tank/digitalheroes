@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyToken } from '@/lib/auth';
 
-const PUBLIC_PATHS = ['/', '/charities', '/login', '/signup', '/forgot-password', '/api/auth'];
+const PUBLIC_PATHS = ['/', '/charities', '/login', '/signup', '/forgot-password', '/api/auth', '/api/stripe/webhook'];
 const ADMIN_PATHS = ['/admin'];
 
 export function proxy(req: NextRequest) {
