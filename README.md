@@ -4,6 +4,22 @@
 
 ---
 
+## User Interface
+
+### Home Page
+
+![Home Page](./assets/homepage.png)
+
+### Charities
+
+![Charities](./assets/charities.png)
+
+### Pricing
+
+![Pricing](./assets/pricing.png) 
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
